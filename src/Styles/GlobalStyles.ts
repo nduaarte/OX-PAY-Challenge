@@ -11,6 +11,10 @@ export default createGlobalStyle`
     background: var(--background);
   }
   
+  li { 
+    list-style: none; 
+  }
+  
   *, button, input {
     border: none;
     background: none;

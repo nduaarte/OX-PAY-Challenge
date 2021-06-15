@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import popcorn from '../../assets/images/popcorn.png';
 import {
@@ -17,23 +19,39 @@ import {
 } from './styles';
 
 interface MovieBarProps {
-  title: string;
-  genres: Array<string>;
-  duration: number;
+  movie: {
+    actors: string;
+    director: string;
+    genres: Array<string>;
+    id: number;
+    plot: string;
+    posterUrl: string;
+    runtime: number;
+    title: string;
+    year: string;
+  }
 }
 
-const MovieBar: React.FC<MovieBarProps> = ({ title, genres, duration }) => {
+const MovieBar: React.FC<MovieBarProps> = ({ movie }) => {
   const [isChecked, setIsChecked] = useState(false);
+  const { title, genres, runtime } = movie;
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   function handleCheckBox() {
     setIsChecked(!isChecked);
+  }
+  
+  function dispatchToNavigate(movie: Object) {
+    dispatch({ type: 'UPDATE_MOVIE', value: movie });
+    history.push('/movieInfo');
   }
 
   return (
     <Container>
       <TitleWrapper>
-        <PopImage src={popcorn} />
-        <Title>{title}</Title>
+        <PopImage src={popcorn} alt='popcorn-icon' />
+        <Title onClick={() => dispatchToNavigate(movie)}>{title}</Title>
       </TitleWrapper>
 
       <InfoWrapper>
@@ -43,7 +61,7 @@ const MovieBar: React.FC<MovieBarProps> = ({ title, genres, duration }) => {
 
         <InfoSubWrapper>
           <ClockIcon />
-          <Duration>{duration}min</Duration>
+          <Duration>{runtime}min</Duration>
         </InfoSubWrapper>
 
         <CheckBox onClick={handleCheckBox}>

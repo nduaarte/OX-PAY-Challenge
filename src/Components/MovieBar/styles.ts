@@ -13,6 +13,9 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: var(--lightGrey);
+
+  -webkit-box-shadow: 5px 5px 8px -5px rgba(0,0,0,0.22); 
+  box-shadow: 5px 5px 8px -5px rgba(0,0,0,0.22);
 `;
 
 export const TitleWrapper = styled.div`
@@ -36,13 +39,13 @@ export const InfoSubWrapper = styled.div`
 
 export const PopImage = styled.img`
   object-fit: center;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   margin-right: 8px;
 `;
 
 export const Title = styled.section`
-  font-size: 28px;
+  font-size: 23px;
   font-weight: bold;
   color: var(--darkerGrey);
 
@@ -52,10 +55,11 @@ export const Title = styled.section`
 `;
 
 export const Genre = styled.span`
-  font-size: 17px;
+  font-size: 16px;
   line-height: 25px;
   font-weight: bold;
   color: var(--darkGrey);
+  margin-right: 15px;
 `;
 
 export const Duration = styled.span`

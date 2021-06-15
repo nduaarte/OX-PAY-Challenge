@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import GlobalStyles from './Styles/GlobalStyles';
 import MovieList from './Pages/MovieList';
+import MoveInfo from './Pages/MoveInfo';
 
 const App: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ const App: React.FC = () => {
 
       <Switch>
         <Route exact path='/' component={MovieList} />
-        <Route path='movieInfo' />
+        <Route path='/movieInfo' component={MoveInfo} />
       </Switch>
     </Fragment>
   );
