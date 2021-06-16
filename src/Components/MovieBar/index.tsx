@@ -8,14 +8,14 @@ import {
   TitleWrapper,
   InfoWrapper,
   InfoSubWrapper,
+  MobileWrapper,
   PopImage,
   Title,
   Genre,
   Duration,
   ClockIcon,
   CheckedIcon,
-  UncheckedIcon,
-  CheckBox
+  UncheckedIcon
 } from './styles';
 
 interface MovieBarProps {
@@ -41,8 +41,8 @@ const MovieBar: React.FC<MovieBarProps> = ({ movie }) => {
   function handleCheckBox() {
     setIsChecked(!isChecked);
   }
-  
-  function dispatchToNavigate(movie: Object) {
+
+  function dispatchToNavigate(movie: object) {
     dispatch({ type: 'UPDATE_MOVIE', value: movie });
     history.push('/movieInfo');
   }
@@ -55,18 +55,20 @@ const MovieBar: React.FC<MovieBarProps> = ({ movie }) => {
       </TitleWrapper>
 
       <InfoWrapper>
-        <InfoSubWrapper>
-          {genres.map(item => <Genre>{item}</Genre>)}
-        </InfoSubWrapper>
+        <MobileWrapper>
+          <InfoSubWrapper>
+            {genres.map(item => <Genre>{item}</Genre>)}
+          </InfoSubWrapper>
 
-        <InfoSubWrapper>
-          <ClockIcon />
-          <Duration>{runtime}min</Duration>
-        </InfoSubWrapper>
+          <InfoSubWrapper>
+            <ClockIcon />
+            <Duration>{runtime}min</Duration>
+          </InfoSubWrapper>
+        </MobileWrapper>
 
-        <CheckBox onClick={handleCheckBox}>
+        <button onClick={handleCheckBox}>
           {isChecked ? <CheckedIcon /> : <UncheckedIcon />}
-        </CheckBox>
+        </button>
       </InfoWrapper>
     </Container>
   );

@@ -6,20 +6,29 @@ export const Container = styled.div`
   padding: 20px;
 
   @media (min-width: 850px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     padding: 20px 30px;
+    
   }
 `;
-
-
 
 export const Title = styled.h1`
   font-size: 26px;
   color: var(--darkerGrey);
+  margin-bottom: 10px;
 `;
 
 export const MovieWrapper = styled.div`
   @media (min-width: 850px) {
+    background-color: var(--lightGrey);
     display: flex;
+    padding: 30px;
+    border-radius: 20px;
+
+    -webkit-box-shadow: 5px 5px 8px -5px rgba(0,0,0,0.22); 
+    box-shadow: 5px 5px 8px -5px rgba(0,0,0,0.22);
   }
 `;
 
@@ -27,6 +36,10 @@ export const Banner = styled.img`
   margin-top: 15px;
   width: 85%;
   max-width: 350px;
+  border-radius: 8px;
+
+  -webkit-box-shadow: 5px 5px 8px -5px rgba(0,0,0,0.22); 
+  box-shadow: 5px 5px 8px -5px rgba(0,0,0,0.22);
 `;
 
 export const InfoWrapper = styled.div`
