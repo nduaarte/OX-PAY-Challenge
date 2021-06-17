@@ -4,6 +4,7 @@ import { BiCameraMovie } from 'react-icons/bi';
 
 export const Container = styled.div`
   padding: 20px;
+  height: 100vh;
   background-color: var(--lightGrey);
 
   @media (min-width: 850px) {
